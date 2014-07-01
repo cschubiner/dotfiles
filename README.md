@@ -3,7 +3,7 @@ dotfiles
 
 Dotfiles for zsh and vim
 
-##Installation
+###Installation
 Run the following commands in your terminal
 
     cd ~
@@ -18,8 +18,8 @@ Run the following commands in your terminal
 
     echo "Cloning Clay Schubiner dotfiles"
     git clone https://github.com/cschubiner/dotfiles.git clay_schubiner_dotfiles
-    cp ~/clay_schubiner_dotfiles/.vimrc ~
-    cp ~/clay_schubiner_dotfiles/.zshrc ~
+    ln -s clay_schubiner_dotfiles/.zshrc .zshrc
+    ln -s clay_schubiner_dotfiles/.vimrc .vimrc
     source ~/.zshrc
     zsh
     echo "Done!"
@@ -32,6 +32,14 @@ You're done!
 
 ###Permanently switch shells
 If you like this configuration, you can permanently switch to your new zsh shell by running:
+```
+chsh -s /bin/zsh
+```
+### Updating
 
-    chsh -s /bin/zsh
+Run the following commands to update your configuration:
 
+```
+cd ~/clay_schubiner_dotfiles
+git pull
+```
