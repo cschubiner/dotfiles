@@ -4,7 +4,7 @@ dotfiles
 Dotfiles for zsh and vim
 
 ###Installation
-Run the following commands in your terminal
+Run the following commands in your terminal. Your existing vimrc and zshrc files (if they exist) will be backed up. 
 
     cd ~
     echo "Installing Oh-My-Zsh"
