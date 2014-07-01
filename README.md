@@ -24,7 +24,7 @@ Run the following commands in your terminal
     ln -s clay_schubiner_dotfiles/.vimrc .vimrc
     source ~/.zshrc
     zsh
-    echo "Done!"
+    echo 'Done!' &&
     
 
 
