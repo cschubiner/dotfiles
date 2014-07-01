@@ -15,8 +15,7 @@ Run the following commands in your terminal
     mkdir -p ~/.vim/autoload ~/.vim/bundle; \
     curl -Sso ~/.vim/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim;
-    wget -O ~/.vimrc https://raw.github.com/cschubiner/vim-settings/master/.vimrc
-    
+
     echo "Cloning Clay Schubiner dotfiles"
     git clone https://github.com/cschubiner/dotfiles.git clay_schubiner_dotfiles
     cp ~/clay_schubiner_dotfiles/.vimrc ~
