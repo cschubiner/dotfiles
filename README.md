@@ -28,7 +28,7 @@ Run the following commands in your terminal. Your existing vimrc and zshrc files
 
     cd ~
     mkdir zsh_plugins
-    rm ~/zsh_plugins/.DS_Store
+    rm -f ~/zsh_plugins/.DS_Store
     touch zsh_plugins/my_zsh_config.sh
     source ~/.zshrc
     zsh
