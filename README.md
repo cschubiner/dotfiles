@@ -7,9 +7,13 @@ Dotfiles for zsh and vim
 Run the following commands in your terminal. Your existing vimrc and zshrc files (if they exist) will be backed up.
 
     cd ~
-    echo "Installing Oh-My-Zsh"
-    git clone git://zsh.git.sf.net/gitroot/zsh/zsh
-    curl -L http://install.ohmyz.sh | sh
+    echo "Installing Pretzo"
+    zsh
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    setopt EXTENDED_GLOB
+    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+      ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    done
 
     echo "Installing Vim plugins"
     mkdir -p ~/.vim/autoload ~/.vim/bundle && \
@@ -21,8 +25,18 @@ Run the following commands in your terminal. Your existing vimrc and zshrc files
     mv .vimrc BACKUP_VIMRC
     ln -s clay_schubiner_dotfiles/.zshrc .zshrc
     ln -s clay_schubiner_dotfiles/.vimrc .vimrc
+
+    cd ~
+    mkdir zsh_plugins
+    touch zsh_plugins/my_zsh_config.sg
     source ~/.zshrc
     zsh
+
+    echo "Configuring OSX"
+    cd ~/clay_schubiner_dotfiles
+    chmod 777 ./osx_config
+    ./osx_config
+
     echo "Done!"
 
 If you're using Windows, change all occurrences of `~/.vim` to `~\vimfiles`.
