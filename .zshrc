@@ -20,6 +20,7 @@ export PATH=$PATH:~/bin
 
 mkdir -p ~/zsh_plugins
 touch ~/zsh_plugins/.empty
+rm -f ~/zsh_plugins/.DS_Store
 for f in ~/zsh_plugins/*; do
   source $f;
 done
