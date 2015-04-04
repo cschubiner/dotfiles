@@ -6,8 +6,11 @@ defaults write com.apple.screencapture location ~/Desktop/Screenshots
 # https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 
 # Show remaining battery time; hide percentage
-defaults write com.apple.menuextra.battery ShowPercent -string "NO"
-defaults write com.apple.menuextra.battery ShowTime -string "YES"
+# don't think this works...
+#defaults write com.apple.menuextra.battery ShowPercent -string "NO"
+#defaults write com.apple.menuextra.battery ShowTime -string "YES"
+
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
