@@ -39,3 +39,5 @@ for f in ~/zsh_plugins/.*; do
   source $f;
 done
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
