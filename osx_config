@@ -1,9 +1,6 @@
 mkdir ~/Desktop/Screenshots
 defaults write com.apple.screencapture location ~/Desktop/Screenshots
 
-git config --global core.editor "vim"
-
-#
 # Gratuitously stolen from @mathiasbynens
 # https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 
@@ -238,6 +235,14 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 # file=/Applications/Dropbox.app/Contents/Resources/check.icns
 # [ -e "$file" ] && mv -f "$file" "$file.bak"
 # unset file
+
+#git default editor 
+git config --global core.editor "vim"
+
+# make dock delay shorter
+defaults write com.apple.dock autohide-delay -int 0
+defaults write com.apple.dock autohide-time-modifier -float 0.4
+killall Dock
 
 # Kill affected applications
 for app in Finder Dock Mail Safari iTunes iCal Address\ Book SystemUIServer; do killall "$app" > /dev/null 2>&1; done
