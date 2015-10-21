@@ -25,9 +25,14 @@ export KEYTIMEOUT=1
 
 bindkey '^r' history-incremental-search-backward
 
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:~/bin
+export PATH=$PATH:/usr/local/bin
 
 mkdir -p ~/zsh_plugins
 touch ~/zsh_plugins/.empty
@@ -39,5 +44,5 @@ for f in ~/zsh_plugins/.*; do
   source $f;
 done
 
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
