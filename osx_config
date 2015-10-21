@@ -247,5 +247,11 @@ killall Dock
 # Kill affected applications
 for app in Finder Dock Mail Safari iTunes iCal Address\ Book SystemUIServer; do killall "$app" > /dev/null 2>&1; done
 
+
+#Add sublime subl shortcut
+mkdir ~/bin
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+
+
 killall SystemUIServer
 echo "OSX Hacks Done. Note that some of these changes require a logout/restart to take effect."
