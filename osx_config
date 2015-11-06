@@ -49,8 +49,11 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+# Set a perfectly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1.2
+
+# Set a shorter Delay until key repeat
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
 
 # Disable auto-correct
 # defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -67,8 +70,8 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+# defaults write com.apple.screensaver askForPassword -int 1
+# defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
@@ -144,12 +147,6 @@ defaults write com.apple.dock mouse-over-hilte-stack -bool true
 
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
-
-# Remove the auto-hiding Dock delay
-# defaults write com.apple.Dock autohide-delay -float 0
-
-# Remove the animation when hiding/showing the Dock (actually, make it fast. If you want to remove, use 0)
-defaults write com.apple.dock autohide-time-modifier -float 0.25
 
 # Enable the 2D Dock
 defaults write com.apple.dock no-glass -bool true

@@ -30,7 +30,7 @@ Run the following commands in your terminal. Your existing vimrc and zshrc files
     ln -s clay_schubiner_dotfiles/.zpreztorc .zpreztorc
 
     cd ~
-    mkdir zsh_plugins
+    ln -s clay_schubiner_dotfiles/zsh_plugins  zsh_plugins
     rm -f ~/zsh_plugins/.DS_Store
     touch zsh_plugins/my_zsh_config.sh
     source ~/.zshrc
