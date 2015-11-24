@@ -35,6 +35,7 @@ Run the following commands in your terminal. Your existing vimrc and zshrc files
     touch ~/zsh_plugins/my_zsh_config.sh
     source ~/.zshrc
     zsh
+    cd ~
 
     echo "Configuring OSX"
     cd ~/clay_schubiner_dotfiles
