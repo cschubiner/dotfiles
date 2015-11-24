@@ -20,19 +20,19 @@ Run the following commands in your terminal. Your existing vimrc and zshrc files
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
     echo "Cloning Clay Schubiner dotfiles"
-    git clone https://github.com/cschubiner/dotfiles.git clay_schubiner_dotfiles
-    mv -f .zshrc BACKUP_ZSHRC
-    mv -f .vimrc BACKUP_VIMRC
-    ln -s clay_schubiner_dotfiles/.zshrc .zshrc
-    ln -s clay_schubiner_dotfiles/.vimrc .vimrc
-    ln -s clay_schubiner_dotfiles/.gitignore_global .gitignore_global
-    ln -s clay_schubiner_dotfiles/.zprezto .zprezto
-    ln -s clay_schubiner_dotfiles/.zpreztorc .zpreztorc
+    git clone https://github.com/cschubiner/dotfiles.git ~/clay_schubiner_dotfiles
+    mv -f ~/.zshrc BACKUP_ZSHRC
+    mv -f ~/.vimrc BACKUP_VIMRC
+    ln -s ~/clay_schubiner_dotfiles/.zshrc .zshrc
+    ln -s ~/clay_schubiner_dotfiles/.vimrc .vimrc
+    ln -s ~/clay_schubiner_dotfiles/.gitignore_global .gitignore_global
+    ln -s ~/clay_schubiner_dotfiles/.zprezto .zprezto
+    ln -s ~/clay_schubiner_dotfiles/.zpreztorc .zpreztorc
 
     cd ~
-    ln -s clay_schubiner_dotfiles/zsh_plugins  zsh_plugins
+    ln -s ~/clay_schubiner_dotfiles/zsh_plugins  ~zsh_plugins
     rm -f ~/zsh_plugins/.DS_Store
-    touch zsh_plugins/my_zsh_config.sh
+    touch ~/zsh_plugins/my_zsh_config.sh
     source ~/.zshrc
     zsh
 
