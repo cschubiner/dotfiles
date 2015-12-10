@@ -10,6 +10,8 @@ alias rookery='cd ~/airlab/repos/rookery'
 alias lend='cd ~/lending_club'
 
 alias git=hub
+alias gp='git push'
+alias gpf='git push -f'
 alias gm='git commit'
 alias gst='git status'
 alias gps="git rev-parse --abbrev-ref HEAD | awk '{print \"git push origin \"$1\":\"$1}' | sh"

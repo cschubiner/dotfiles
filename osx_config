@@ -236,6 +236,9 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 #git default editor 
 git config --global core.editor "vim"
 
+# http://stackoverflow.com/questions/948354/default-behavior-of-git-push-without-a-branch-specified/948397#948397
+git config --global push.default current
+
 # make dock delay shorter
 defaults write com.apple.dock autohide-delay -int 0
 defaults write com.apple.dock autohide-time-modifier -float 0.4
@@ -249,6 +252,11 @@ for app in Finder Dock Mail Safari iTunes iCal Address\ Book SystemUIServer; do 
 mkdir ~/bin
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
+#global gitignore 
+cd ~
+touch .gitignore
+git config --global core.excludesfile ~/.gitignore
+echo .DS_Store >> ~/.gitignore
 
 killall SystemUIServer
 echo "OSX Hacks Done. Note that some of these changes require a logout/restart to take effect."

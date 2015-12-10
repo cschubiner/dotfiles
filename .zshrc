@@ -45,4 +45,6 @@ for f in ~/zsh_plugins/.*; do
 done
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+fpath=(~/.zsh $fpath)
 
+plugins=(rails git ruby)
