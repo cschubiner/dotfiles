@@ -44,9 +44,18 @@ Run the following commands in your terminal. Your existing vimrc and zshrc files
 
     echo "Done!"
 
+### Installing in Windows
 If you're using Windows, change all occurrences of `~/.vim` to `~\vimfiles`.
 
-You're done!
+### Installing in Linux/Ubuntu
+    sudo apt-get install zsh
+    sudo apt-get install git-core
+    sudo wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+    sudo chsh -s `which zsh`
+
+Then shutdown:
+
+    sudo shutdown -r 0
 
 ###Permanently switch shells
 If you like this configuration, you can permanently switch to your new zsh shell by running:

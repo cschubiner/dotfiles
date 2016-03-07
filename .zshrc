@@ -47,4 +47,7 @@ done
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 fpath=(~/.zsh $fpath)
 
+alias rake='noglob rake'
+alias zeus='noglob zeus'
+
 plugins=(rails git ruby)
