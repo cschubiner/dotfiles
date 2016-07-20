@@ -252,6 +252,8 @@ for app in Finder Dock Mail Safari iTunes iCal Address\ Book SystemUIServer; do 
 mkdir ~/bin
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
+git config --global core.precomposeunicode true
+
 #global gitignore 
 cd ~
 touch .gitignore

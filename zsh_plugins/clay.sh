@@ -5,7 +5,7 @@ export SSH_AUTH_SOCK=$TMPDIR/ssh-agent-$USER.sock
 
 alias air='cd ~/airlab/repos/airbnb'
 alias data='cd ~/airlab/repos/data'
-alias datainf='cd ~/airlab/repos/data-infra'
+alias erf='cd ~/airlab/repos/erf'
 alias rookery='cd ~/airlab/repos/rookery'
 alias rook='cd ~/airlab/repos/rookery'
 alias mario='cd ~/sitar-portal'
@@ -36,3 +36,6 @@ alias gcm="git checkout master"
 alias grm="git fetch && git fetch origin && git rebase origin/master"
 alias gfrm="git fetch && git fetch origin && git rebase origin/master"
 alias c="clay"
+alias gcl="git checkout -"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
