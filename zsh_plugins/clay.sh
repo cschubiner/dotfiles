@@ -3,12 +3,27 @@ export PATH=$PATH:/opt/local/bin
 
 export SSH_AUTH_SOCK=$TMPDIR/ssh-agent-$USER.sock
 
+gcob () {
+	    git checkout $(git for-each-ref --sort=-committerdate refs/heads/ | awk '{print $3}' | cut -c $(echo " refs/head/" | wc -c)- | fzf-tmux)
+}
+
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+	    find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+			      sed s/^..//) 2> /dev/null'
+
+export FZF_DEFAULT_COMMAND='ag -l -g ""'
+export FZF_CTRL_T_COMMAND='ag -l -g ""'
+
 alias air='cd ~/airlab/repos/airbnb'
 alias data='cd ~/airlab/repos/data'
 alias erf='cd ~/airlab/repos/erf'
 alias rookery='cd ~/airlab/repos/rookery'
 alias rook='cd ~/airlab/repos/rookery'
 alias mario='cd ~/sitar-portal'
+
+alias nrc='npm run --silent sanity-check'
+alias nrt='npm run --silent sanity-check'
 
 alias lend='cd ~/lending_club'
 alias lc='cd ~/lending_club'
