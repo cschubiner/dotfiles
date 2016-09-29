@@ -52,5 +52,8 @@ alias grm="git fetch && git fetch origin && git rebase origin/master"
 alias gfrm="git fetch && git fetch origin && git rebase origin/master"
 alias c="clay"
 alias gcl="git checkout -"
+
+alias vh="air && vagrant halt"
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
