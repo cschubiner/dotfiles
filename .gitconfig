@@ -1,36 +1,72 @@
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	b = branch
+
+	amend = commit --amend
+	graph = log --oneline --graph
+	oneline = log --oneline
+	patch = add --patch
+	refresh = !STASH=$(git stash) && git fetch && git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
+	reword = commit --amend --only -- # Requires Git 1.7.11.3+
+	showmsg = log --format=%B -n 1
+	su = submodule update --init
+
+	# git-who tells you who the authors are. It is generally most useful when
+	# given a path:
+	#
+	#   git who -- path/to/file
+	who = "!f() { \
+		git log --ignore-all-space --pretty=format:'%Cgreen%<(30)%aN%Creset %Cblue<%aE>%Creset' \"${@-HEAD}\" \
+		| nl | sort --key=2 | uniq -c -f 1 | sort --numeric-sort --key=2 \
+		| awk '{$2=\"\"; print $0}'; \
+	}; f"
+
 [user]
 	name = Clay Schubiner
 	email = clay.schubiner@airbnb.com
+
 [core]
 	excludesfile = /Users/clay_schubiner/.gitignore
 	editor = vim
 	precomposeunicode = true
 	pager = diff-highlight | diff-so-fancy | less -r
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
+
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
 [push]
 	default = current
+
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
+
 [filter "lfs"]
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+
 [rerere]
 	enabled = 1
+
 [hub]
 	host = https://git.musta.ch/
 	host = git.musta.ch
+
 [url "https://github.com/szagoruyko/loadcaffe.git"]
 	insteadof = git://github.com/szagoruyko/loadcaffe
+
 [color]
 	ui = always
+
 [color "diff"]
 	meta = yellow bold
 	commit = green bold
@@ -38,8 +74,29 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = "red bold 52"
 	newNormal = "green bold"
 	newHighlight = "green bold 22"
+
+[diff]
+	algorithm = histogram
+
+	# More readable diffs
+	# Added in Git 2.9.0
+	compactionHeuristic = true
+
+[help]
+	autocorrect = 10
+	# $ git lgo
+	# WARNING: You called a Git command named 'lgo', which does not exist.
+	# Continuing under the assumption that you meant 'log'
+	# in 1.0 seconds automatically...
+
+[log]
+	decorate = short
+
+[merge]
+	conflictStyle = diff3g

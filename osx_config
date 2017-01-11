@@ -11,6 +11,61 @@ defaults write com.apple.screencapture location ~/Desktop/Screenshots
 
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# [10.9] Misc `systemsetup` settings: see `man systemsetup`
+sudo systemsetup -settimezone America/Los_Angeles
+sudo systemsetup -setusingnetworktime on
+sudo systemsetup -setcomputersleep 60
+sudo systemsetup -setdisplaysleep 15
+sudo systemsetup -setharddisksleep Never
+sudo systemsetup -setrestartfreeze on
+sudo systemsetup -setremoteappleevents off
+
+# [10.9] Disable the sudden motion sensor as it’s not useful for SSDs
+# [Probably useless; no way to verify this command works]
+sudo pmset -a sms 0
+
+# [10.9] Disable local Time Machine snapshots
+sudo tmutil disable
+sudo tmutil disablelocal
+
+# Reveal IP address, hostname, OS version, etc. when clicking the clock
+# in the login window
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
+# [10.9] Automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# [10.9] Finder: disable window animations and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# [10.9] Finder: allow text selection in Quick Look
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
+# [10.9] Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# [10.9] Disable smart quotes, dashes, ellipses
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# [10.9] Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# [10.9] Finder: allow quitting via Command-Q; doing so will also hide desktop icons
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# [10.9] [Don't] display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
+
+# [10.9] Tweak subpixel font rendering (https://wincent.com/wiki/AppleFontSmoothing)
+defaults -currentHost write NSGlobalDomain AppleFontSmoothing -int 1
+
+# [10.9] Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
+
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
@@ -256,7 +311,7 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sub
 
 git config --global core.precomposeunicode true
 
-#global gitignore 
+#global gitignore
 cd ~
 touch .gitignore
 git config --global core.excludesfile ~/.gitignore
