@@ -1,7 +1,7 @@
 export PATH=$PATH:~/bin:~/Dropbox/googleSearchScraper/bin
 export PATH=$PATH:/opt/local/bin
 
-export SSH_AUTH_SOCK=$TMPDIR/ssh-agent-$USER.sock
+export ROOKERY_CLIENT_TIMEOUT=60
 
 gcob () {
 	    git checkout $(git for-each-ref --sort=-committerdate refs/heads/ | awk '{print $3}' | cut -c $(echo " refs/head/" | wc -c)- | fzf-tmux)
@@ -15,12 +15,27 @@ export FZF_DEFAULT_COMMAND='
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 export FZF_CTRL_T_COMMAND='ag -l -g ""'
 
+# gets the current branch name
+gitbranch() {
+  git branch | egrep "^\*" | cut -d ' ' -f 2
+}
+
+gitrepo() {
+  git remote -v | egrep "^origin.+\(push\)$" | cut -f 2 | cut -d ":" -f 2 | cut -d "." -f 1
+}
+
+# opens a link to the git branch in GHE
+bo() { # stands for branchopen. also stands for body odor.
+  open "http://git.musta.ch/$(gitrepo)/compare/$(gitbranch)?expand=1"
+}
+
 alias air='cd ~/airlab/repos/airbnb'
 alias data='cd ~/airlab/repos/data'
 alias erf='cd ~/airlab/repos/erf'
 alias rookery='cd ~/airlab/repos/rookery'
 alias rook='cd ~/airlab/repos/rookery'
 alias mario='cd ~/sitar-portal'
+alias mochi='cd ~/airlab/repos/mochi'
 
 alias nrc='npm run --silent sanity-check'
 alias nrt='npm run --silent sanity-check'
@@ -30,7 +45,7 @@ alias lc='cd ~/lending_club'
 alias lc2='cd ~/lending_club_copier'
 
 alias git=hub
-alias gd='git diff'
+alias gd='git diff | diff-so-fancy'
 alias glf='git cherry -v master'
 alias gp='git push'
 alias gpf='git push -f'

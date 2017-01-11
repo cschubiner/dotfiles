@@ -1,0 +1,45 @@
+[user]
+	name = Clay Schubiner
+	email = clay.schubiner@airbnb.com
+[core]
+	excludesfile = /Users/clay_schubiner/.gitignore
+	editor = vim
+	precomposeunicode = true
+	pager = diff-highlight | diff-so-fancy | less -r
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = current
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[rerere]
+	enabled = 1
+[hub]
+	host = https://git.musta.ch/
+	host = git.musta.ch
+[url "https://github.com/szagoruyko/loadcaffe.git"]
+	insteadof = git://github.com/szagoruyko/loadcaffe
+[color]
+	ui = always
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
