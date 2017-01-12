@@ -25,7 +25,7 @@
 
 [user]
 	name = Clay Schubiner
-	email = clay.schubiner@airbnb.com
+	email = clayschubiner@gmail.com
 
 [core]
 	excludesfile = /Users/clay_schubiner/.gitignore
@@ -99,4 +99,4 @@
 	decorate = short
 
 [merge]
-	conflictStyle = diff3g
+	# conflictStyle = diff3g

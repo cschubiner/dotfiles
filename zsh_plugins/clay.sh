@@ -57,7 +57,7 @@ alias gss='git stash show -p'
 alias gps="git rev-parse --abbrev-ref HEAD | awk '{print \"git push origin \"$1\":\"$1}' | sh"
 alias gpsf="git rev-parse --abbrev-ref HEAD | awk '{print \"git push origin \"$1\":\"$1\" -f\"}' | sh"
 
-alias gsm="git status -s | egrep '((UU)|([M|A][M|A])|( [M|A])|([M|A] )) ' | cut  -c 4-"
+alias gsm="git status -s | egrep '((UU)|([M|A][M|A])|( [M|A])|([M|A] ))|(\s?[M|A|U])\s?' | cut  -c 12-"
 alias gam="gsm | xargs -n1 git add"
 alias gma="gam && git commit --amend --no-edit"
 alias tm="gsm | xargs -n1 touch"
