@@ -313,7 +313,6 @@ git config --global core.precomposeunicode true
 
 #global gitignore
 cd ~
-ln -s ~/clay_schubiner_dotfiles/.gitignore_global  ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
 
