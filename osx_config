@@ -313,9 +313,9 @@ git config --global core.precomposeunicode true
 
 #global gitignore
 cd ~
-touch .gitignore
-git config --global core.excludesfile ~/.gitignore
-echo .DS_Store >> ~/.gitignore
+ln -s ~/clay_schubiner_dotfiles/.gitignore_global  ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
+
 
 killall SystemUIServer
 echo "OSX Hacks Done. Note that some of these changes require a logout/restart to take effect."

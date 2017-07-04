@@ -28,7 +28,7 @@
 	email = clayschubiner@gmail.com
 
 [core]
-	excludesfile = /Users/clay_schubiner/.gitignore
+	excludesfile = /Users/clay_schubiner/.gitignore_global
 	editor = vim
 	precomposeunicode = true
 	pager = diff-highlight | diff-so-fancy | less -r
