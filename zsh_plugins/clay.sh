@@ -17,7 +17,7 @@ export FZF_CTRL_T_COMMAND='ag -l -g ""'
 
 # gets the current branch name
 gitbranch() {
-  git branch | egrep "^\*" | cut -d ' ' -f 2
+  printf "$(git branch | egrep "^\*" | cut -d ' ' -f 2)" | perl -pe 's/\e\[?.*?[\@-~]//g'
 }
 
 gitrepo() {
@@ -36,6 +36,7 @@ alias rookery='cd ~/airlab/repos/rookery'
 alias rook='cd ~/airlab/repos/rookery'
 alias mario='cd ~/sitar-portal'
 alias mochi='cd ~/airlab/repos/mochi'
+alias dls='cd ~/airlab/repos/dls-web'
 
 alias nrc='npm run --silent sanity-check'
 alias nrt='npm run --silent sanity-check'
@@ -45,9 +46,10 @@ alias lc='cd ~/lending_club'
 alias lc2='cd ~/lending_club_copier'
 
 alias git=hub
-alias gd='git diff | diff-so-fancy'
+alias gd='git diff | diff-so-fancy | less'
 alias glf='git cherry -v master'
 alias gp='git push'
+alias ga='git add '
 alias gpf='git push -f'
 alias gpl='git pull'
 alias gplr='git pull --rebase'
@@ -69,6 +71,9 @@ alias c="clay"
 alias gcl="git checkout -"
 
 alias vh="air && vagrant halt"
+alias grv="~/git-reviewers/git-reviewers"
+
+alias grhom="git reset --hard origin/master"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
