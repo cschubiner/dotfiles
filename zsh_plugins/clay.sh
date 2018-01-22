@@ -7,8 +7,11 @@ export GOPATH=$HOME/work
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 
+
 alias gogr="echo GRADLE_OPTS=\"-Xmx256m\" gradle -q run && GRADLE_OPTS=\"-Xmx256m\" gradle -q run"
 alias gr="echo gradle -q run && gradle -q run"
+
+alias gl="git log" # overrides the colored 'gl' command
 
 alias fsn="python3 ~/find_strings_not_by_string/find_strings.py"
 alias fna="python3 ~/find_strings_not_by_string/find_strings.py"
@@ -99,11 +102,13 @@ alias dls='cd ~/airlab/repos/dls-web'
 alias apr='airlab proj run'
 alias apb='airlab proj build'
 
+alias d='cd ~/airlab/repos/treehouse/projects/dora/service'
 alias dora='cd ~/airlab/repos/treehouse/projects/dora/service'
 alias bank='cd ~/airlab/repos/treehouse/projects/trips/bankai/service'
 alias b='cd ~/airlab/repos/treehouse/projects/trips/bankai/service'
 alias bankai='cd ~/airlab/repos/treehouse/projects/trips/bankai/service'
 alias treehouse='cd ~/airlab/repos/treehouse'
+alias t='cd ~/airlab/repos/treehouse'
 alias tree='cd ~/airlab/repos/treehouse'
 alias deku='cd ~/airlab/repos/treehouse/projects/deku/service'
 
