@@ -47,6 +47,16 @@ gdf() {
   git diff --name-only $(git merge-base HEAD origin/master)
 }
 
+gdfsa() {
+  echo "git diff files spotless apply"
+  echo "Make sure you are in root directory!"
+  local HELLO=0
+  gdf | while read line ; do
+    echo "Reformatting:" $line
+    java -jar ~/Downloads/google-java-format-1.5-all-deps.jar -r $line
+  done
+}
+
 gcp() {
 # cherry pick
   git cherry-pick $1
