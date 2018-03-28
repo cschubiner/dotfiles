@@ -11,7 +11,7 @@ alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path a
 alias gogr="echo GRADLE_OPTS=\"-Xmx256m\" gradle -q run && GRADLE_OPTS=\"-Xmx256m\" gradle -q run"
 alias gr="echo gradle -q run && gradle -q run"
 
-alias gl="git log" # overrides the colored 'gl' command
+alias gl="git log --pretty=format:'%Cred[%h]%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --date=short"
 
 alias fsn="python3 ~/find_strings_not_by_string/find_strings.py"
 alias fna="python3 ~/find_strings_not_by_string/find_strings.py"
@@ -57,11 +57,6 @@ gdfsa() {
   done
 }
 
-gcp() {
-# cherry pick
-  git cherry-pick $1
-}
-
 gcob() {
   git checkout $(git for-each-ref --sort=-committerdate refs/heads/ | awk '{print $3}' | cut -c $(echo " refs/head/" | wc -c)- | fzf-tmux)
 }
@@ -81,15 +76,6 @@ gitbranch() {
 
 gitrepo() {
   git remote -v | egrep "^origin.+\(push\)$" | cut -f 2 | cut -d ":" -f 2 | cut -d "." -f 1
-}
-
-git() {
-  if [ $1 = "push" ] ||[ $1 = "pull" ]; then
-      airlab rekey;
-      command git "$@";
-  else
-      command git "$@";
-  fi
 }
 
 # opens a link to the git branch in GHE
@@ -135,7 +121,7 @@ alias glf='git cherry -v master'
 alias ga='git add '
 alias gp='airlab rekey && git push'
 alias gpf='airlab rekey && git push -f'
-alias gpl='airlab rekey && git pull'
+alias gpl='airlab rekey && git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias gplr='airlab rekey && git pull --rebase'
 alias gm='git commit'
 alias gst='git status'
