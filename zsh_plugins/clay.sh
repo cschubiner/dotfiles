@@ -4,6 +4,13 @@ export PATH=$PATH:/opt/local/bin
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$JAVA_HOME/bin:$PATH
 export GOPATH=$HOME/work
+#export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+
+export EDITOR='subl'
+
+export BANKAI_TEST='i-041a440fa23bc1707'
+export DORA_TEST='i-032a3ed53bcb4ba5f'
+export SATURN5='i-0da23e4d1c85cc63f.inst.aws.us-east-1.prod.musta.ch'
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 

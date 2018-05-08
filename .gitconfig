@@ -26,9 +26,10 @@
 [user]
 	name = Clay Schubiner
 	email = clayschubiner@gmail.com
+	signingkey = D7FB20C244979A67
 
 [core]
-	excludesfile = /Users/clay_schubiner/.gitignore_global
+	excludesfile = /Users/cschubiner/.gitignore_global
 	editor = vim
 	precomposeunicode = true
 	pager = diff-highlight | diff-so-fancy | less -r
@@ -101,3 +102,7 @@
 
 [merge]
 	# conflictStyle = diff3g
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
