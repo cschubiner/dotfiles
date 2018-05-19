@@ -1,19 +1,24 @@
-export PATH=$PATH:~/bin:~/Dropbox/googleSearchScraper/bin
-export PATH=$PATH:/usr/local/Cellar/mysql/5.7.19/bin
+# export PATH=$PATH:~/bin:~/Dropbox/googleSearchScraper/bin
+# export PATH=$PATH:/usr/local/Cellar/mysql/5.7.19/bin
 export PATH=$PATH:/opt/local/bin
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$JAVA_HOME/bin:$PATH
 export GOPATH=$HOME/work
 #export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
 
+# https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction
+export GOOGLE_APPLICATION_CREDENTIALS="~/Dropbox/Other/stock-ml-99794e6060b6.json"
+
 export EDITOR='subl'
 
 export BANKAI_TEST='i-041a440fa23bc1707'
-export DORA_TEST='i-032a3ed53bcb4ba5f'
+export DORA_TEST='i-058ec4228f9f980d5'
 export SATURN5='i-0da23e4d1c85cc63f.inst.aws.us-east-1.prod.musta.ch'
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 
+
+alias python2="python"
 
 alias gogr="echo GRADLE_OPTS=\"-Xmx256m\" gradle -q run && GRADLE_OPTS=\"-Xmx256m\" gradle -q run"
 alias gr="echo gradle -q run && gradle -q run"
@@ -154,5 +159,5 @@ alias grv="~/git-reviewers/git-reviewers"
 
 alias grhom="airlab rekey && git reset --hard origin/master"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"

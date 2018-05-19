@@ -26,7 +26,7 @@
 [user]
 	name = Clay Schubiner
 	email = clayschubiner@gmail.com
-	signingkey = D7FB20C244979A67
+	signingkey = AF49D39B
 
 [core]
 	excludesfile = /Users/cschubiner/.gitignore_global
@@ -103,6 +103,6 @@
 [merge]
 	# conflictStyle = diff3g
 [commit]
-	gpgsign = true
+	gpgsign = false
 [gpg]
 	program = gpg
