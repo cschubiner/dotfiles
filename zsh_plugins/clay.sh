@@ -11,9 +11,40 @@ export GOOGLE_APPLICATION_CREDENTIALS="~/Dropbox/Other/stock-ml-99794e6060b6.jso
 
 export EDITOR='subl'
 
-export BANKAI_TEST='i-041a440fa23bc1707'
+# dora/bankai test-1:
+# export DORA_TEST='i-024e7149d2522e8dd'
+# export BANKAI_TEST='i-021708d27b9d75ded'
+# dora/bankai test-2:
+# export DORA_TEST='i-032a3ed53bcb4ba5f'
+# export BANKAI_TEST='i-041a440fa23bc1707'
+# dora/bankai test-3:
+# export DORA_TEST='i-08f4786dec4ae8da7'
+# export BANKAI_TEST='i-0e82824244c3c6342'
+# dora/bankai test-4:
+# export DORA_TEST='i-0b4ff6ae0f938bd7d'
+# export BANKAI_TEST='i-076bef480b0a127af'
+# dora/bankai test-5:
+# export DORA_TEST='i-02f82be345eb00ceb'
+# export BANKAI_TEST='i-05a00a7832c7211a3'
+# dora/bankai test-6:
+# export DORA_TEST='i-0525ce360504ab316'
+# export BANKAI_TEST='i-0a1983698beae94ca'
+# dora/bankai test-7:
 export DORA_TEST='i-058ec4228f9f980d5'
-export SATURN5='i-0da23e4d1c85cc63f.inst.aws.us-east-1.prod.musta.ch'
+export BANKAI_TEST='i-0af8f589c0193ebee'
+# dora/bankai test-8:
+# export DORA_TEST='i-0306af9609f92bd5e'
+# export BANKAI_TEST='i-0e06816af04f4eb3d'
+# dora/bankai test-9:
+# export DORA_TEST='i-0c1a8a999c7319457'
+# export BANKAI_TEST='i-0698534ef5e2bba63'
+# dora/bankai test-10:
+# export DORA_TEST='i-074b588d7fa7ee996'
+# export BANKAI_TEST='i-056428779666f8edf'
+#
+
+#export SATURN5='i-0854a0addee201f61.inst.aws.us-east-1.prod.musta.ch'
+export SATURN5='i-0e29373d3279ad9ef.inst.aws.us-east-1.prod.musta.ch'
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 
