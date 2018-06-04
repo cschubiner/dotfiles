@@ -92,12 +92,23 @@ gdf() {
 
 gdfsa() {
   echo "git diff files spotless apply"
-  echo "Make sure you are in root directory!"
-  local HELLO=0
+  jsExists=false
   gdf | while read line ; do
     echo "Reformatting:" $line
-    java -jar ~/Downloads/google-java-format-1.5-all-deps.jar -r $line
+    if [[ $line = *".js"* ]]; then
+      jsExists=true
+      echo "jsExists!..."
+    else
+      if [[ $line = *".java"* ]]; then
+        echo "google-java-format..."
+        java -jar ~/Downloads/google-java-format-1.5-all-deps.jar -r $line
+      fi
+    fi
   done
+  if $jsExists; then
+    echo "prettifying js..."
+    bash ~/clay_schubiner_dotfiles/jsprettier_js_files.sh
+  fi
 }
 
 gcob() {
@@ -184,6 +195,7 @@ alias gcm="git checkout master"
 alias grm="airlab rekey && git fetch origin master && git rebase origin/master"
 alias c="clay"
 alias gcl="git checkout -"
+alias grc="git rebase --continue && git status"
 
 alias vh="air && vagrant halt"
 alias grv="~/git-reviewers/git-reviewers"
