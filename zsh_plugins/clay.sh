@@ -97,7 +97,6 @@ gdfsa() {
     echo "Reformatting:" $line
     if [[ $line = *".js"* ]]; then
       jsExists=true
-      echo "jsExists!..."
     else
       if [[ $line = *".java"* ]]; then
         echo "google-java-format..."
@@ -106,7 +105,6 @@ gdfsa() {
     fi
   done
   if $jsExists; then
-    echo "prettifying js..."
     bash ~/clay_schubiner_dotfiles/jsprettier_js_files.sh
   fi
 }
