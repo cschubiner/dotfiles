@@ -41,10 +41,11 @@ export BANKAI_TEST='i-0af8f589c0193ebee'
 # dora/bankai test-10:
 # export DORA_TEST='i-074b588d7fa7ee996'
 # export BANKAI_TEST='i-056428779666f8edf'
-#
 
 #export SATURN5='i-0854a0addee201f61.inst.aws.us-east-1.prod.musta.ch'
-export SATURN5='i-0e29373d3279ad9ef.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-0e29373d3279ad9ef.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-0909807147c572b6d.inst.aws.us-east-1.prod.musta.ch'
+export SATURN5='i-09ec2e9c0c4112c40.inst.aws.us-east-1.prod.musta.ch'
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 
