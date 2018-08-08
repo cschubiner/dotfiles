@@ -11,6 +11,10 @@ export GOOGLE_APPLICATION_CREDENTIALS="~/Dropbox/Other/stock-ml-99794e6060b6.jso
 
 export EDITOR='subl'
 
+alias conda='~/anaconda3/bin/conda'
+# export PATH="~/anaconda3/bin:$PATH"
+
+
 # dora/bankai test-1:
 # export DORA_TEST='i-024e7149d2522e8dd'
 # export BANKAI_TEST='i-021708d27b9d75ded'
@@ -27,11 +31,11 @@ export EDITOR='subl'
 # export DORA_TEST='i-02f82be345eb00ceb'
 # export BANKAI_TEST='i-05a00a7832c7211a3'
 # dora/bankai test-6:
-# export DORA_TEST='i-0525ce360504ab316'
-# export BANKAI_TEST='i-0a1983698beae94ca'
+export DORA_TEST='i-0525ce360504ab316'
+export BANKAI_TEST='i-084047c8e8f5c0afd'
 # dora/bankai test-7:
-export DORA_TEST='i-058ec4228f9f980d5'
-export BANKAI_TEST='i-0af8f589c0193ebee'
+# export DORA_TEST='i-058ec4228f9f980d5'
+# export BANKAI_TEST='i-0af8f589c0193ebee'
 # dora/bankai test-8:
 # export DORA_TEST='i-0306af9609f92bd5e'
 # export BANKAI_TEST='i-0e06816af04f4eb3d'
@@ -45,7 +49,10 @@ export BANKAI_TEST='i-0af8f589c0193ebee'
 #export SATURN5='i-0854a0addee201f61.inst.aws.us-east-1.prod.musta.ch'
 # export SATURN5='i-0e29373d3279ad9ef.inst.aws.us-east-1.prod.musta.ch'
 # export SATURN5='i-0909807147c572b6d.inst.aws.us-east-1.prod.musta.ch'
-export SATURN5='i-09ec2e9c0c4112c40.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-09ec2e9c0c4112c40.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-0e07860e5273c857a.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-05acd495851a0e41e.inst.aws.us-east-1.prod.musta.ch'
+export SATURN5='i-00da6cf10f9214dba.inst.aws.us-east-1.prod.musta.ch'
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 
@@ -203,3 +210,4 @@ alias grhom="airlab rekey && git reset --hard origin/master"
 
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
+. /Users/clay_schubiner/anaconda3/etc/profile.d/conda.sh
