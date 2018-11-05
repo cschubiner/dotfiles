@@ -39,3 +39,6 @@ for f in ~/zsh_plugins/*.sh; do
   source $f;
 done
 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

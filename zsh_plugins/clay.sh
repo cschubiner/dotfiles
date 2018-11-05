@@ -11,6 +11,8 @@ export GOOGLE_APPLICATION_CREDENTIALS="~/Dropbox/Other/stock-ml-99794e6060b6.jso
 
 export EDITOR='subl'
 
+source ~/.airlab/shellhelper.sh
+
 # dora/bankai test-1:
 # export DORA_TEST='i-024e7149d2522e8dd'
 # export BANKAI_TEST='i-021708d27b9d75ded'
@@ -29,12 +31,12 @@ export EDITOR='subl'
 # dora/bankai test-6:
 # export DORA_TEST='i-0525ce360504ab316'
 # export BANKAI_TEST='i-0a1983698beae94ca'
-# dora/bankai test-7:
-export DORA_TEST='i-058ec4228f9f980d5'
-export BANKAI_TEST='i-0af8f589c0193ebee'
+#dora/bankai test-7:
+# export DORA_TEST='i-058ec4228f9f980d5'
+#export BANKAI_TEST='i-0af8f589c0193ebee'
 # dora/bankai test-8:
-# export DORA_TEST='i-0306af9609f92bd5e'
-# export BANKAI_TEST='i-0e06816af04f4eb3d'
+ export DORA_TEST='i-0306af9609f92bd5e'
+ export BANKAI_TEST='i-0c932320a5a9852d9'
 # dora/bankai test-9:
 # export DORA_TEST='i-0c1a8a999c7319457'
 # export BANKAI_TEST='i-0698534ef5e2bba63'
@@ -45,10 +47,31 @@ export BANKAI_TEST='i-0af8f589c0193ebee'
 #export SATURN5='i-0854a0addee201f61.inst.aws.us-east-1.prod.musta.ch'
 # export SATURN5='i-0e29373d3279ad9ef.inst.aws.us-east-1.prod.musta.ch'
 # export SATURN5='i-0909807147c572b6d.inst.aws.us-east-1.prod.musta.ch'
-export SATURN5='i-09ec2e9c0c4112c40.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-09ec2e9c0c4112c40.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-0dc22790947f0581f.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-0f23047e093e71ff8.inst.aws.us-east-1.prod.musta.ch'
+export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
+
+# SCMPUFF STUFF
+eval "$(scmpuff init -s)"
+git () {
+  case $1 in
+    (commit | blame | log | rebase | merge | diff) eval "$(scmpuff expand -- "$SCMPUFF_GIT_CMD" "$@")" ;;
+    (checkout | rm | reset) eval "$(scmpuff expand --relative -- "$SCMPUFF_GIT_CMD" "$@")" ;;
+    (add) eval "$(scmpuff expand -- "$SCMPUFF_GIT_CMD" "$@")"
+      scmpuff_status ;;
+    (*) "$SCMPUFF_GIT_CMD" "$@" ;;
+  esac
+}
+alias gs="git stash"
+alias gsa="git stash apply"
+alias gst="scmpuff status"
+
+
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 
+alias szsh="subl ~/zsh_plugins/clay.sh && source ~/zsh_plugins/clay.sh"
 
 alias python2="python"
 
@@ -59,8 +82,6 @@ alias gl="git log --pretty=format:'%Cred[%h]%Creset%C(yellow)%d%Creset %s %Cgree
 
 alias fsn="python3 ~/find_strings_not_by_string/find_strings.py"
 alias fna="python3 ~/find_strings_not_by_string/find_strings.py"
-
-source ~/.airlab/shellhelper.sh
 
 export ROOKERY_CLIENT_TIMEOUT=60
 
@@ -75,20 +96,15 @@ grl() {
 
 grf() {
   git checkout $(git merge-base HEAD origin/master) $1
-   # && git rese t HEAD $1
+   # && git reset HEAD $1
 }
 
 gda() {
   git diff $(git merge-base HEAD origin/master)
 }
 
-# clone of gdf
-gmf() {
-  git diff --name-only $(git merge-base HEAD origin/master)
-}
-
 gdf() {
-  git diff --name-only $(git merge-base HEAD origin/master)
+  git diff --name-only $(git merge-base HEAD origin/master) | cat
 }
 
 gdfsa() {
@@ -101,7 +117,7 @@ gdfsa() {
     else
       if [[ $line = *".java"* ]]; then
         echo "google-java-format..."
-        java -jar ~/Downloads/google-java-format-1.5-all-deps.jar -r $line
+        java -jar ~/Downloads/google-java-format-1.6-all-deps.jar -r $line
       fi
     fi
   done
@@ -169,7 +185,7 @@ alias lc='cd ~/lending_club'
 alias lc2='cd ~/lending_club_copier'
 
 # alias git=hub
-alias gd='git diff | diff-so-fancy | less'
+alias gd='git diff'
 alias glf='git cherry -v master'
 alias ga='git add '
 alias gp='airlab rekey && git push'
@@ -177,13 +193,12 @@ alias gpf='airlab rekey && git push -f'
 alias gpl='airlab rekey && git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias gplr='airlab rekey && git pull --rebase'
 alias gm='git commit'
-alias gst='git status'
 alias gss='git stash show -p'
 alias gps="git rev-parse --abbrev-ref HEAD | awk '{print \"git push origin \"$1\":\"$1}' | sh"
 alias gpsf="git rev-parse --abbrev-ref HEAD | awk '{print \"git push origin \"$1\":\"$1\" -f\"}' | sh"
 
 
-alias gsm="git status -s | egrep '((UU)|([M|A][M|A])|( [M|A])|([M|A] ))|(\s?[M|A|U])\s?' | cut  -c 12-"
+alias gsm="git status -s | egrep '((UU)|([M|A][M|A])|( [M|A])|([M|A] ))|(\s?[M|A|U])\s?' | cut  -c 4-"
 alias gam="gsm | xargs -n1 git add"
 alias gma="gam && git commit --amend --no-edit"
 alias glint="gsm | grep .js | xargs -n1 node_modules/.bin/eslint"
