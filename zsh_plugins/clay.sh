@@ -50,7 +50,27 @@ source ~/.airlab/shellhelper.sh
 # export SATURN5='i-09ec2e9c0c4112c40.inst.aws.us-east-1.prod.musta.ch'
 # export SATURN5='i-0dc22790947f0581f.inst.aws.us-east-1.prod.musta.ch'
 # export SATURN5='i-0f23047e093e71ff8.inst.aws.us-east-1.prod.musta.ch'
+
+export DATA_DIR=~/airlab/repos/data #PATH WHERE YOU CLONED THE DATA REPO
+export AFDEV_HOST="i-0e275f14954a6a75e.inst.aws.airbnb.com"
+export AFDEV_PORT=49826
+
+export TEST_INST=1
+
 export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
+
+case $(hostname -s | cat) in
+  clay-schubiners-iMac)
+    echo On Clay\'s 5k iMac...
+    export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
+  ;;
+  stop)
+    echo stopping
+  ;;
+  *)
+    echo don\'t know
+  ;;
+esac
 
 # SCMPUFF STUFF
 eval "$(scmpuff init -s)"
