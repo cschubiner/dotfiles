@@ -91,7 +91,8 @@ alias gst="scmpuff status"
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 
-alias szsh="subl ~/zsh_plugins/clay.sh && source ~/zsh_plugins/clay.sh"
+alias szsh="source ~/zsh_plugins/clay.sh"
+alias sublzsh="subl ~/zsh_plugins/clay.sh"
 
 alias python2="python"
 
