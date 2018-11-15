@@ -23,8 +23,6 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 # ---- vim mode end
 
-bindkey '^r' history-incremental-search-backward
-
 # bind k and j for VI mode
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
@@ -37,17 +35,10 @@ export PATH=$PATH:/usr/local/bin
 mkdir -p ~/zsh_plugins
 touch ~/zsh_plugins/.empty
 rm -f ~/zsh_plugins/.DS_Store
-for f in ~/zsh_plugins/*; do
-  source $f;
-done
-for f in ~/zsh_plugins/.*; do
+for f in ~/zsh_plugins/*.sh; do
   source $f;
 done
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-fpath=(~/.zsh $fpath)
 
-alias rake='noglob rake'
-alias zeus='noglob zeus'
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-plugins=(rails git ruby)

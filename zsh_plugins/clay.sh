@@ -11,9 +11,13 @@ export GOOGLE_APPLICATION_CREDENTIALS="~/Dropbox/Other/stock-ml-99794e6060b6.jso
 
 export EDITOR='subl'
 
+<<<<<<< HEAD
 alias conda='~/anaconda3/bin/conda'
 # export PATH="~/anaconda3/bin:$PATH"
 
+=======
+source ~/.airlab/shellhelper.sh
+>>>>>>> 38c989f4a5f21154f799a374a91bdf5b94ff4ffc
 
 # dora/bankai test-1:
 # export DORA_TEST='i-024e7149d2522e8dd'
@@ -31,14 +35,19 @@ alias conda='~/anaconda3/bin/conda'
 # export DORA_TEST='i-02f82be345eb00ceb'
 # export BANKAI_TEST='i-05a00a7832c7211a3'
 # dora/bankai test-6:
-export DORA_TEST='i-0525ce360504ab316'
-export BANKAI_TEST='i-084047c8e8f5c0afd'
+# export DORA_TEST='i-0525ce360504ab316'
+# export BANKAI_TEST='i-084047c8e8f5c0afd'
 # dora/bankai test-7:
 # export DORA_TEST='i-058ec4228f9f980d5'
 # export BANKAI_TEST='i-0af8f589c0193ebee'
+# export DORA_TEST='i-0525ce360504ab316'
+# export BANKAI_TEST='i-0a1983698beae94ca'
+#dora/bankai test-7:
+# export DORA_TEST='i-058ec4228f9f980d5'
+#export BANKAI_TEST='i-0af8f589c0193ebee'
 # dora/bankai test-8:
-# export DORA_TEST='i-0306af9609f92bd5e'
-# export BANKAI_TEST='i-0e06816af04f4eb3d'
+ export DORA_TEST='i-0306af9609f92bd5e'
+ export BANKAI_TEST='i-0c932320a5a9852d9'
 # dora/bankai test-9:
 # export DORA_TEST='i-0c1a8a999c7319457'
 # export BANKAI_TEST='i-0698534ef5e2bba63'
@@ -52,10 +61,54 @@ export BANKAI_TEST='i-084047c8e8f5c0afd'
 # export SATURN5='i-09ec2e9c0c4112c40.inst.aws.us-east-1.prod.musta.ch'
 # export SATURN5='i-0e07860e5273c857a.inst.aws.us-east-1.prod.musta.ch'
 # export SATURN5='i-05acd495851a0e41e.inst.aws.us-east-1.prod.musta.ch'
-export SATURN5='i-00da6cf10f9214dba.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-00da6cf10f9214dba.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-0dc22790947f0581f.inst.aws.us-east-1.prod.musta.ch'
+# export SATURN5='i-0f23047e093e71ff8.inst.aws.us-east-1.prod.musta.ch'
+
+export DATA_DIR=~/airlab/repos/data #PATH WHERE YOU CLONED THE DATA REPO
+export AFDEV_HOST="i-0e275f14954a6a75e.inst.aws.airbnb.com"
+export AFDEV_PORT=49826
+
+export TEST_INST=1
+
+export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
+
+case $(hostname -s | cat) in
+  clay-schubiners-iMac)
+    echo On Clay\'s 5k iMac...
+    export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
+  ;;
+  clay-schubiner-2)
+    echo On Clay\'s 15in. laptop...
+    export SATURN5='i-0936a2d23f3fb2a01.inst.aws.us-east-1.prod.musta.ch'
+  ;;
+  *)
+    echo ERROR - Don\'t know which cons!
+  ;;
+esac
+
+# SCMPUFF STUFF
+eval "$(scmpuff init -s)"
+git () {
+  case $1 in
+    (commit | blame | log | rebase | merge | diff) eval "$(scmpuff expand -- "$SCMPUFF_GIT_CMD" "$@")" ;;
+    (checkout | rm | reset) eval "$(scmpuff expand --relative -- "$SCMPUFF_GIT_CMD" "$@")" ;;
+    (add) eval "$(scmpuff expand -- "$SCMPUFF_GIT_CMD" "$@")"
+      scmpuff_status ;;
+    (*) "$SCMPUFF_GIT_CMD" "$@" ;;
+  esac
+}
+alias gs="git stash"
+alias gsa="git stash apply"
+alias gst="scmpuff status"
+
+
+>>>>>>> 38c989f4a5f21154f799a374a91bdf5b94ff4ffc
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 
+alias szsh="source ~/zsh_plugins/clay.sh"
+alias sublzsh="subl ~/zsh_plugins/clay.sh"
 
 alias python2="python"
 
@@ -66,8 +119,6 @@ alias gl="git log --pretty=format:'%Cred[%h]%Creset%C(yellow)%d%Creset %s %Cgree
 
 alias fsn="python3 ~/find_strings_not_by_string/find_strings.py"
 alias fna="python3 ~/find_strings_not_by_string/find_strings.py"
-
-source ~/.airlab/shellhelper.sh
 
 export ROOKERY_CLIENT_TIMEOUT=60
 
@@ -82,20 +133,15 @@ grl() {
 
 grf() {
   git checkout $(git merge-base HEAD origin/master) $1
-   # && git rese t HEAD $1
+   # && git reset HEAD $1
 }
 
 gda() {
   git diff $(git merge-base HEAD origin/master)
 }
 
-# clone of gdf
-gmf() {
-  git diff --name-only $(git merge-base HEAD origin/master)
-}
-
 gdf() {
-  git diff --name-only $(git merge-base HEAD origin/master)
+  git diff --name-only $(git merge-base HEAD origin/master) | cat
 }
 
 gdfsa() {
@@ -108,7 +154,7 @@ gdfsa() {
     else
       if [[ $line = *".java"* ]]; then
         echo "google-java-format..."
-        java -jar ~/Downloads/google-java-format-1.5-all-deps.jar -r $line
+        java -jar ~/Downloads/google-java-format-1.6-all-deps.jar -r $line
       fi
     fi
   done
@@ -176,7 +222,7 @@ alias lc='cd ~/lending_club'
 alias lc2='cd ~/lending_club_copier'
 
 # alias git=hub
-alias gd='git diff | diff-so-fancy | less'
+alias gd='git diff'
 alias glf='git cherry -v master'
 alias ga='git add '
 alias gp='airlab rekey && git push'
@@ -184,13 +230,12 @@ alias gpf='airlab rekey && git push -f'
 alias gpl='airlab rekey && git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias gplr='airlab rekey && git pull --rebase'
 alias gm='git commit'
-alias gst='git status'
 alias gss='git stash show -p'
 alias gps="git rev-parse --abbrev-ref HEAD | awk '{print \"git push origin \"$1\":\"$1}' | sh"
 alias gpsf="git rev-parse --abbrev-ref HEAD | awk '{print \"git push origin \"$1\":\"$1\" -f\"}' | sh"
 
 
-alias gsm="git status -s | egrep '((UU)|([M|A][M|A])|( [M|A])|([M|A] ))|(\s?[M|A|U])\s?' | cut  -c 12-"
+alias gsm="git status -s | egrep '((UU)|([M|A][M|A])|( [M|A])|([M|A] ))|(\s?[M|A|U])\s?' | cut  -c 4-"
 alias gam="gsm | xargs -n1 git add"
 alias gma="gam && git commit --amend --no-edit"
 alias glint="gsm | grep .js | xargs -n1 node_modules/.bin/eslint"
