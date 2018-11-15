@@ -11,13 +11,10 @@ export GOOGLE_APPLICATION_CREDENTIALS="~/Dropbox/Other/stock-ml-99794e6060b6.jso
 
 export EDITOR='subl'
 
-<<<<<<< HEAD
 alias conda='~/anaconda3/bin/conda'
 # export PATH="~/anaconda3/bin:$PATH"
 
-=======
 source ~/.airlab/shellhelper.sh
->>>>>>> 38c989f4a5f21154f799a374a91bdf5b94ff4ffc
 
 # dora/bankai test-1:
 # export DORA_TEST='i-024e7149d2522e8dd'
