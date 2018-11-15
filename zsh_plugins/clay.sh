@@ -3,7 +3,10 @@
 export PATH=$PATH:/opt/local/bin
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$JAVA_HOME/bin:$PATH
+
 export GOPATH=$HOME/work
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 #export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
 
 # https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction
@@ -14,7 +17,8 @@ export EDITOR='subl'
 alias conda='~/anaconda3/bin/conda'
 # export PATH="~/anaconda3/bin:$PATH"
 
-source ~/.airlab/shellhelper.sh
+# Creates all those go errors
+# source ~/.airlab/shellhelper.sh
 
 # dora/bankai test-1:
 # export DORA_TEST='i-024e7149d2522e8dd'
@@ -85,6 +89,7 @@ case $(hostname -s | cat) in
 esac
 
 # SCMPUFF STUFF
+export SCMPUFF_GIT_CMD='/usr/local/bin/git'
 eval "$(scmpuff init -s)"
 git () {
   case $1 in
@@ -95,12 +100,11 @@ git () {
     (*) "$SCMPUFF_GIT_CMD" "$@" ;;
   esac
 }
+export SCMPUFF_GIT_CMD='/usr/local/bin/git'
+
 alias gs="git stash"
 alias gsa="git stash apply"
 alias gst="scmpuff status"
-
-
->>>>>>> 38c989f4a5f21154f799a374a91bdf5b94ff4ffc
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 
@@ -116,8 +120,6 @@ alias gl="git log --pretty=format:'%Cred[%h]%Creset%C(yellow)%d%Creset %s %Cgree
 
 alias fsn="python3 ~/find_strings_not_by_string/find_strings.py"
 alias fna="python3 ~/find_strings_not_by_string/find_strings.py"
-
-export ROOKERY_CLIENT_TIMEOUT=60
 
 mergeBaseMaster() {
   echo "The commit before your branch started was: $(git merge-base HEAD origin/master)"
@@ -218,7 +220,6 @@ alias lend='cd ~/lending_club'
 alias lc='cd ~/lending_club'
 alias lc2='cd ~/lending_club_copier'
 
-# alias git=hub
 alias gd='git diff'
 alias glf='git cherry -v master'
 alias ga='git add '
