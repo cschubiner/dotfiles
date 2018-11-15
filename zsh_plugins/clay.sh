@@ -82,6 +82,7 @@ case $(hostname -s | cat) in
   clay-schubiner-2)
     echo On Clay\'s 15in. laptop...
     export SATURN5='i-0936a2d23f3fb2a01.inst.aws.us-east-1.prod.musta.ch'
+    . /Users/clay_schubiner/anaconda3/etc/profile.d/conda.sh
   ;;
   *)
     echo ERROR - Don\'t know which cons!
@@ -253,4 +254,3 @@ alias grhom="airlab rekey && git reset --hard origin/master"
 
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
-. /Users/clay_schubiner/anaconda3/etc/profile.d/conda.sh
