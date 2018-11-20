@@ -17,8 +17,8 @@ export EDITOR='subl'
 alias conda='~/anaconda3/bin/conda'
 # export PATH="~/anaconda3/bin:$PATH"
 
-# Creates all those go errors
-# source ~/.airlab/shellhelper.sh
+# Creates all those go errors (or actually it's the git "hub" command)
+source ~/.airlab/shellhelper.sh
 
 # dora/bankai test-1:
 # export DORA_TEST='i-024e7149d2522e8dd'
