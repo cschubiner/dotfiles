@@ -70,14 +70,20 @@ export DATA_DIR=~/airlab/repos/data #PATH WHERE YOU CLONED THE DATA REPO
 export AFDEV_HOST="i-0e275f14954a6a75e.inst.aws.airbnb.com"
 export AFDEV_PORT=49826
 
-export TEST_INST=1
+export TEST_INST=6
 
 export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
 
 case $(hostname -s | cat) in
+  clayschnersimac)
+    echo On Clay\'s 5k iMac...
+    # export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
+    export SATURN5='i-00d8805b6fb23601b.inst.aws.us-east-1.prod.musta.ch'
+  ;;
   clay-schubiners-iMac)
     echo On Clay\'s 5k iMac...
-    export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
+    # export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
+    export SATURN5='i-00d8805b6fb23601b.inst.aws.us-east-1.prod.musta.ch'
   ;;
   clay-schubiner-2)
     echo On Clay\'s 15in. laptop...
