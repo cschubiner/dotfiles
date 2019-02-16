@@ -23,10 +23,6 @@ sudo systemsetup -setharddisksleep Never
 sudo systemsetup -setrestartfreeze on
 sudo systemsetup -setremoteappleevents off
 
-# [10.9] Disable the sudden motion sensor as it’s not useful for SSDs
-# [Probably useless; no way to verify this command works]
-sudo pmset -a sms 0
-
 # [10.9] Disable local Time Machine snapshots
 sudo tmutil disable
 sudo tmutil disablelocal
@@ -108,7 +104,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain KeyRepeat -int 1.2
 
 # Set a shorter Delay until key repeat
-defaults write NSGlobalDomain InitialKeyRepeat -int 20
+defaults write NSGlobalDomain InitialKeyRepeat -int 70
 
 # Disable auto-correct
 # defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
