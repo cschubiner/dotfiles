@@ -1,4 +1,4 @@
-export TEST_INST=11
+export TEST_INST=$(cat ~/zsh_plugins/test_instance.txt)
 
 # export PATH=$PATH:~/bin:~/Dropbox/googleSearchScraper/bin
 # export PATH=$PATH:/usr/local/Cellar/mysql/5.7.19/bin
