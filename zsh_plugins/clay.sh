@@ -1,3 +1,5 @@
+export TEST_INST=11
+
 # export PATH=$PATH:~/bin:~/Dropbox/googleSearchScraper/bin
 # export PATH=$PATH:/usr/local/Cellar/mysql/5.7.19/bin
 export PATH=$PATH:/opt/local/bin
@@ -20,100 +22,46 @@ alias conda='~/anaconda3/bin/conda'
 # Creates all those go errors (or actually it's the git "hub" command)
 source ~/.airlab/shellhelper.sh
 
-# dora/bankai test-1:
-# export DORA_TEST='i-024e7149d2522e8dd'
-# export BANKAI_TEST='i-021708d27b9d75ded'
-# dora/bankai test-2:
-# export DORA_TEST='i-032a3ed53bcb4ba5f'
-# export BANKAI_TEST='i-041a440fa23bc1707'
-# dora/bankai test-3:
-# export DORA_TEST='i-08f4786dec4ae8da7'
-# export BANKAI_TEST='i-0e82824244c3c6342'
-# dora/bankai test-4:
-# export DORA_TEST='i-0b4ff6ae0f938bd7d'
-# export BANKAI_TEST='i-076bef480b0a127af'
-# dora/bankai test-5:
-# export DORA_TEST='i-02f82be345eb00ceb'
-# export BANKAI_TEST='i-05a00a7832c7211a3'
-# dora/bankai test-6:
-# export DORA_TEST='i-0525ce360504ab316'
-# export BANKAI_TEST='i-084047c8e8f5c0afd'
-# dora/bankai test-7:
-# export DORA_TEST='i-058ec4228f9f980d5'
-# export BANKAI_TEST='i-0af8f589c0193ebee'
-# export DORA_TEST='i-0525ce360504ab316'
-# export BANKAI_TEST='i-0a1983698beae94ca'
-#dora/bankai test-7:
-# export DORA_TEST='i-058ec4228f9f980d5'
-#export BANKAI_TEST='i-0af8f589c0193ebee'
-# dora/bankai test-8:
- export DORA_TEST='i-0306af9609f92bd5e'
- export BANKAI_TEST='i-0c932320a5a9852d9'
-# dora/bankai test-9:
-# export DORA_TEST='i-0c1a8a999c7319457'
-# export BANKAI_TEST='i-0698534ef5e2bba63'
-# dora/bankai test-10:
-# export DORA_TEST='i-074b588d7fa7ee996'
-# export BANKAI_TEST='i-056428779666f8edf'
-
-#export SATURN5='i-0854a0addee201f61.inst.aws.us-east-1.prod.musta.ch'
-# export SATURN5='i-0e29373d3279ad9ef.inst.aws.us-east-1.prod.musta.ch'
-# export SATURN5='i-0909807147c572b6d.inst.aws.us-east-1.prod.musta.ch'
-# export SATURN5='i-09ec2e9c0c4112c40.inst.aws.us-east-1.prod.musta.ch'
-# export SATURN5='i-0e07860e5273c857a.inst.aws.us-east-1.prod.musta.ch'
-# export SATURN5='i-05acd495851a0e41e.inst.aws.us-east-1.prod.musta.ch'
-# export SATURN5='i-00da6cf10f9214dba.inst.aws.us-east-1.prod.musta.ch'
-# export SATURN5='i-0dc22790947f0581f.inst.aws.us-east-1.prod.musta.ch'
-# export SATURN5='i-0f23047e093e71ff8.inst.aws.us-east-1.prod.musta.ch'
-
 export DATA_DIR=~/airlab/repos/data #PATH WHERE YOU CLONED THE DATA REPO
 export AFDEV_HOST="i-0e275f14954a6a75e.inst.aws.airbnb.com"
 export AFDEV_PORT=49826
 
-export TEST_INST=6
-
-export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
+export SATURN5='i-040e5f95655a38b18.inst.aws.us-east-1.prod.musta.ch'
 
 case $(hostname -s | cat) in
-  clayschnersimac)
-    echo On Clay\'s 5k iMac...
-    # export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
-    export SATURN5='i-00d8805b6fb23601b.inst.aws.us-east-1.prod.musta.ch'
+  clayschinersmbp)
+    echo On Clay\'s usb-C laptop...
   ;;
-  clay-schubiners-iMac)
-    echo On Clay\'s 5k iMac...
-    # export SATURN5='i-0fd89f9d3527705ec.inst.aws.us-east-1.prod.musta.ch'
-    export SATURN5='i-00d8805b6fb23601b.inst.aws.us-east-1.prod.musta.ch'
-  ;;
-  clay-schubiner-2)
-    echo On Clay\'s 15in. laptop...
-    export SATURN5='i-0936a2d23f3fb2a01.inst.aws.us-east-1.prod.musta.ch'
-    . /Users/clay_schubiner/anaconda3/etc/profile.d/conda.sh
+  clay-schubiners-MacBook-Pro)
+    echo On Clay\'s usb-C laptop...
   ;;
   *)
-    echo ERROR - Don\'t know which cons!
+    echo ERROR - Don\'t know which cons! You are on this cons:
+    hostname -s | cat
   ;;
 esac
 
 # SCMPUFF STUFF
-export SCMPUFF_GIT_CMD='/usr/local/bin/git'
-eval "$(scmpuff init -s)"
-git () {
-  case $1 in
-    (commit | blame | log | rebase | merge | diff) eval "$(scmpuff expand -- "$SCMPUFF_GIT_CMD" "$@")" ;;
-    (checkout | rm | reset) eval "$(scmpuff expand --relative -- "$SCMPUFF_GIT_CMD" "$@")" ;;
-    (add) eval "$(scmpuff expand -- "$SCMPUFF_GIT_CMD" "$@")"
-      scmpuff_status ;;
-    (*) "$SCMPUFF_GIT_CMD" "$@" ;;
-  esac
-}
-export SCMPUFF_GIT_CMD='/usr/local/bin/git'
+# export SCMPUFF_GIT_CMD='/usr/local/bin/git'
+# eval "$(scmpuff init -s)"
+# git () {
+#   case $1 in
+#     (commit | blame | log | rebase | merge | diff) eval "$(scmpuff expand -- "$SCMPUFF_GIT_CMD" "$@")" ;;
+#     (checkout | rm | reset) eval "$(scmpuff expand --relative -- "$SCMPUFF_GIT_CMD" "$@")" ;;
+#     (add) eval "$(scmpuff expand -- "$SCMPUFF_GIT_CMD" "$@")"
+#       scmpuff_status ;;
+#     (*) "$SCMPUFF_GIT_CMD" "$@" ;;
+#   esac
+# }
+# export SCMPUFF_GIT_CMD='/usr/local/bin/git'
+# alias gst="scmpuff status"
+alias gst="git status"
 
 alias gs="git stash"
 alias gsa="git stash apply"
-alias gst="scmpuff status"
 
 alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
+alias gradlew="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
 
 alias szsh="source ~/zsh_plugins/clay.sh"
 alias sublzsh="subl ~/zsh_plugins/clay.sh"

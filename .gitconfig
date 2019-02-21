@@ -29,7 +29,7 @@
 	signingkey = AF49D39B
 
 [core]
-	excludesfile = /Users/cschubiner/zsh_plugins/.gitignore_global
+	excludesfile = /Users/clay_schubiner/.gitignore_global
 	editor = vim
 	precomposeunicode = true
 	pager = diff-highlight | diff-so-fancy | less -r
