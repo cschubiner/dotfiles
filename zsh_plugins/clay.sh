@@ -14,6 +14,7 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction
 export GOOGLE_APPLICATION_CREDENTIALS="~/Dropbox/Other/stock-ml-99794e6060b6.json"
 
+export GIT_EDITOR=vim
 export EDITOR='subl'
 
 alias conda='~/anaconda3/bin/conda'
@@ -26,7 +27,7 @@ export DATA_DIR=~/airlab/repos/data #PATH WHERE YOU CLONED THE DATA REPO
 export AFDEV_HOST="i-0e275f14954a6a75e.inst.aws.airbnb.com"
 export AFDEV_PORT=49826
 
-export SATURN5='i-040e5f95655a38b18.inst.aws.us-east-1.prod.musta.ch'
+export SATURN5='i-0364f6dbfe69d5a0f.inst.aws.us-east-1.prod.musta.ch'
 
 case $(hostname -s | cat) in
   clayschinersmbp)
@@ -132,6 +133,18 @@ export FZF_CTRL_T_COMMAND='ag -l -g ""'
 # gets the current branch name
 gitbranch() {
   printf "$(git branch | egrep "^\*" | cut -d ' ' -f 2)" | perl -pe 's/\e\[?.*?[\@-~]//g'
+}
+
+dbbr() {
+  dbr && bbr
+}
+
+dbr() {
+  open https://deployboard.d.musta.ch/apps/dora/snapshots/branches/$(gitbranch)
+}
+
+bbr() {
+  open https://deployboard.d.musta.ch/apps/bankai/snapshots/branches/$(gitbranch)
 }
 
 gitrepo() {
