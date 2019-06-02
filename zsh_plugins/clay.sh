@@ -135,6 +135,10 @@ gitbranch() {
   printf "$(git branch | egrep "^\*" | cut -d ' ' -f 2)" | perl -pe 's/\e\[?.*?[\@-~]//g'
 }
 
+gbr() {
+  gitbranch
+}
+
 dbbr() {
   dbr && bbr
 }
