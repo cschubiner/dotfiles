@@ -22,6 +22,7 @@
 		| nl | sort --key=2 | uniq -c -f 1 | sort --numeric-sort --key=2 \
 		| awk '{$2=\"\"; print $0}'; \
 	}; f"
+	squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
 
 [user]
 	name = Clay Schubiner
@@ -29,7 +30,7 @@
 	signingkey = AF49D39B
 
 [core]
-	excludesfile = /Users/clay_schubiner/.gitignore_global
+	excludesfile = /Users/clayschubiner/.gitignore_global
 	editor = vim
 	precomposeunicode = true
 	pager = diff-highlight | diff-so-fancy | less -r

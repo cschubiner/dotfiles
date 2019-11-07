@@ -3,8 +3,8 @@ export TEST_INST=$(cat ~/zsh_plugins/test_instance.txt)
 # export PATH=$PATH:~/bin:~/Dropbox/googleSearchScraper/bin
 # export PATH=$PATH:/usr/local/Cellar/mysql/5.7.19/bin
 export PATH=$PATH:/opt/local/bin
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=$JAVA_HOME/bin:$PATH
+# export JAVA_HOME=$(/usr/libexec/java_home)
+# export PATH=$JAVA_HOME/bin:$PATH
 
 export GOPATH=$HOME/work
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
@@ -17,23 +17,17 @@ export GOOGLE_APPLICATION_CREDENTIALS="~/Dropbox/Other/stock-ml-99794e6060b6.jso
 export GIT_EDITOR=vim
 export EDITOR='subl'
 
-alias conda='~/anaconda3/bin/conda'
+# alias conda='~/anaconda3/bin/conda'
 # export PATH="~/anaconda3/bin:$PATH"
-
-# Creates all those go errors (or actually it's the git "hub" command)
-source ~/.airlab/shellhelper.sh
-
-export DATA_DIR=~/airlab/repos/data #PATH WHERE YOU CLONED THE DATA REPO
-export AFDEV_HOST="i-0e275f14954a6a75e.inst.aws.airbnb.com"
-export AFDEV_PORT=49826
-
-export SATURN5='i-0364f6dbfe69d5a0f.inst.aws.us-east-1.prod.musta.ch'
 
 case $(hostname -s | cat) in
   clayschinersmbp)
     echo On Clay\'s usb-C laptop...
   ;;
   clay-schubiners-MacBook-Pro)
+    echo On Clay\'s usb-C laptop...
+  ;;
+  Claytons-MacBook-Pro)
     echo On Clay\'s usb-C laptop...
   ;;
   *)
@@ -61,9 +55,6 @@ alias gst="git status"
 alias gs="git stash"
 alias gsa="git stash apply"
 
-alias gradle="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
-alias gradlew="$HOME/airlab/repos/treehouse/gradlew"  # or your customized path alias gradlew="$HOME/airlab/repos/treehouse/gradlew"
-
 alias szsh="source ~/zsh_plugins/clay.sh"
 alias sublzsh="subl ~/zsh_plugins/clay.sh"
 
@@ -72,7 +63,11 @@ alias python2="python"
 alias gogr="echo GRADLE_OPTS=\"-Xmx256m\" gradle -q run && GRADLE_OPTS=\"-Xmx256m\" gradle -q run"
 alias gr="echo gradle -q run && gradle -q run"
 
-alias gl="git log --pretty=format:'%Cred[%h]%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --date=short"
+# alias gl="git log --pretty=format:'%Cred[%h]%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --date=short"
+# alias gl="git log --oneline"
+alias gl="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(yellow)%h%C(reset) %C(bold blue)(%ar)%C(reset)%C(bold red)%d%C(reset) %C(white)%s%C(reset) %C(green)[%an]%C(reset)' --all"
+alias gitpruneoldbranches="git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D"
+
 
 alias fsn="python3 ~/find_strings_not_by_string/find_strings.py"
 alias fna="python3 ~/find_strings_not_by_string/find_strings.py"
@@ -135,21 +130,9 @@ gitbranch() {
   printf "$(git branch | egrep "^\*" | cut -d ' ' -f 2)" | perl -pe 's/\e\[?.*?[\@-~]//g'
 }
 
-gbr() {
-  gitbranch
-}
-
-dbbr() {
-  dbr && bbr
-}
-
-dbr() {
-  open https://deployboard.d.musta.ch/apps/dora/snapshots/branches/$(gitbranch)
-}
-
-bbr() {
-  open https://deployboard.d.musta.ch/apps/bankai/snapshots/branches/$(gitbranch)
-}
+# gbr() {
+#   gitbranch
+# }
 
 gitrepo() {
   git remote -v | egrep "^origin.+\(push\)$" | cut -f 2 | cut -d ":" -f 2 | cut -d "." -f 1
@@ -157,50 +140,29 @@ gitrepo() {
 
 # opens a link to the git branch in GHE
 bo() { # stands for branchopen. also stands for body odor.
-  open "http://git.musta.ch/$(gitrepo)/compare/$(gitbranch)?expand=1"
+  open "http://github.com/$(gitrepo)/compare/$(gitbranch)?expand=1"
 }
 
-alias a2='cd ~/airbnb2'
-alias a='cd ~/airlab/repos/airbnb'
-alias air2='cd ~/airbnb2'
-alias air='cd ~/airlab/repos/airbnb'
-alias data='cd ~/airlab/repos/data'
-alias erf='cd ~/airlab/repos/erf'
-alias rookery='cd ~/airlab/repos/rookery'
-alias rook='cd ~/airlab/repos/rookery'
-alias mario='cd ~/sitar-portal'
-alias mochi='cd ~/airlab/repos/mochi'
-alias dls='cd ~/airlab/repos/dls-web'
+glzy() {
+   git add .
+   git commit -a -m “$1”
+   git push
+}
 
-alias apr='airlab proj run'
-alias apb='airlab proj build'
-
-alias d='cd ~/airlab/repos/treehouse/projects/dora/service'
-alias dora='cd ~/airlab/repos/treehouse/projects/dora/service'
-alias bank='cd ~/airlab/repos/treehouse/projects/trips/bankai/service'
-alias b='cd ~/airlab/repos/treehouse/projects/trips/bankai/service'
-alias bankai='cd ~/airlab/repos/treehouse/projects/trips/bankai/service'
-alias treehouse='cd ~/airlab/repos/treehouse'
-alias t='cd ~/airlab/repos/treehouse'
-alias tree='cd ~/airlab/repos/treehouse'
-alias deku='cd ~/airlab/repos/treehouse/projects/deku/service'
-
-alias nrc='npm run --silent sanity-check'
-alias nrt='npm run --silent sanity-check'
-
-alias lend='cd ~/lending_club'
-alias lc='cd ~/lending_club'
-alias lc2='cd ~/lending_club_copier'
+alias jf='cd ~/jumpstart-frontend'
+alias jb='cd ~/jumpstart-backend && source ./venv/bin/activate'
+alias f8='flake8'
 
 alias gd='git diff'
 alias glf='git cherry -v master'
 alias ga='git add '
-alias gp='airlab rekey && git push'
-alias gpf='airlab rekey && git push -f'
-alias gpl='airlab rekey && git pull origin $(git rev-parse --abbrev-ref HEAD)'
-alias gplr='airlab rekey && git pull --rebase'
+alias gp='git push'
+alias gpf='git push -f'
+alias gpl='git pull origin $(git rev-parse --abbrev-ref HEAD)'
+alias gplr='git pull --rebase'
 alias gm='git commit'
 alias gss='git stash show -p'
+alias gst='git status'
 alias gps="git rev-parse --abbrev-ref HEAD | awk '{print \"git push origin \"$1\":\"$1}' | sh"
 alias gpsf="git rev-parse --abbrev-ref HEAD | awk '{print \"git push origin \"$1\":\"$1\" -f\"}' | sh"
 
@@ -212,16 +174,36 @@ alias glint="gsm | grep .js | xargs -n1 node_modules/.bin/eslint"
 
 alias tm="gsm | xargs -n1 touch"
 alias gcm="git checkout master"
+alias gcd="git checkout develop"
 
-alias grm="airlab rekey && git fetch origin master && git rebase origin/master"
-alias c="clay"
+alias grm="git fetch origin master && git rebase origin/master"
+alias grmi="git fetch origin master && git rebase -i origin/master"
+alias grqi="git fetch origin qa && git rebase -i origin/qa"
+alias grdi="git fetch origin develop && git rebase -i origin/develop"
+alias grd="git fetch origin develop && git rebase origin/develop"
+alias grq="git fetch origin qa && git rebase origin/qa"
+alias c="~/commit-helper/bin/clay"
 alias gcl="git checkout -"
 alias grc="git rebase --continue && git status"
 
 alias vh="air && vagrant halt"
 alias grv="~/git-reviewers/git-reviewers"
 
-alias grhom="airlab rekey && git reset --hard origin/master"
+alias grhom="git reset --hard origin/master"
 
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
+
+eval "$(ssh-agent -s)";
+ssh-add -K ~/.ssh/backend-dev-server.pem
+ssh-add -K ~/.ssh/clay-webhooks-dev.pem
+ssh-add -K ~/.ssh/aws-chess.pem
+ssh-add -K ~/.ssh/id_rsa
+
+# https://github.com/nvbn/thefuck
+# eval $(thefuck --alias)
+
+
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey "^P" vi-up-line-or-history
+bindkey "^N" vi-down-line-or-history

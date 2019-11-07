@@ -38,7 +38,7 @@ set foldcolumn=2
 set foldmethod=marker
 
 " indicate when a line is wrapped by prefixing wrapped line with '> '
-set showbreak=>\ 
+set showbreak=>\
 
 " always show tab line
 set showtabline=2
@@ -251,10 +251,10 @@ nmap <Leader>ph :!pman <cword><CR>
 " create test method
 nmap <Leader>pt o<CR>/**<CR>@test<CR>/<CR>public function<TAB>
 " phpdoc comments
-nmap <Leader>cc o/**<CR>$Rev$<CR>$Date$<CR>$Id$<CR>$Author$<CR>$HeadURL$<CR><CR><CR><CR>@package <CR><BS>/<ESC>kkk$a 
-nmap <Leader>cb o/**<CR><CR><CR>@param <CR>@return <CR>@example <CR><BS>/<ESC>kkkkk$a 
-nmap <Leader>cv o/**<CR><CR><CR>@var <CR><BS>/<ESC>kkk$a 
-nmap <Leader>cp o/**<CR><CR><CR>@author Lucas Oman <me@lucasoman.com><CR>@param <CR>@return <CR>@example <CR><BS>/<ESC>kkkkkk$a 
+nmap <Leader>cc o/**<CR>$Rev$<CR>$Date$<CR>$Id$<CR>$Author$<CR>$HeadURL$<CR><CR><CR><CR>@package <CR><BS>/<ESC>kkk$a
+nmap <Leader>cb o/**<CR><CR><CR>@param <CR>@return <CR>@example <CR><BS>/<ESC>kkkkk$a
+nmap <Leader>cv o/**<CR><CR><CR>@var <CR><BS>/<ESC>kkk$a
+nmap <Leader>cp o/**<CR><CR><CR>@author Lucas Oman <me@lucasoman.com><CR>@param <CR>@return <CR>@example <CR><BS>/<ESC>kkkkkk$a
 "}}}
 " svn {{{
 " set svn keywords
@@ -349,12 +349,12 @@ endfunction
 " add new snippets as regex=>completion
 " first match encountered is used
 let s:snippets = {}
-let s:snippets['^\s*if$'] = " () {\<CR>}\<ESC>k^f)i" 
-let s:snippets['function$'] = " () {\<CR>}\<ESC>k^f(i" 
+let s:snippets['^\s*if$'] = " () {\<CR>}\<ESC>k^f)i"
+let s:snippets['function$'] = " () {\<CR>}\<ESC>k^f(i"
 let s:snippets['^\s*class$'] = "  {\<CR>}\<ESC>kt{i"
 let s:snippets['^\s*interface$'] = "  {\<CR>}\<ESC>kt{i"
-let s:snippets['^\s*foreach$'] = " () {\<CR>}\<ESC>k^f)i" 
-let s:snippets['^\s*while$'] = " () {\<CR>}\<ESC>k^f)i" 
+let s:snippets['^\s*foreach$'] = " () {\<CR>}\<ESC>k^f)i"
+let s:snippets['^\s*while$'] = " () {\<CR>}\<ESC>k^f)i"
 
 " when tab is pressed:
 " 1) checks snippets for matches, return match if there is one
@@ -470,3 +470,4 @@ fun! MoveTab(n)
 	exe "tabm ".which
 endfunction
 "}}}
+
