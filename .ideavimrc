@@ -1,0 +1,4 @@
+set ignorecase
+" set smartcase
+set scrolloff=18         " 3 lines above/below cursor when scrolling
+set ideajoin

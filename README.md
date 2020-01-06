@@ -30,6 +30,7 @@ Run the following commands in your terminal. Your existing vimrc and zshrc files
     ln -s ~/clay_schubiner_dotfiles/.gitconfig .gitconfig
     ln -s ~/clay_schubiner_dotfiles/.zprezto .zprezto
     ln -s ~/clay_schubiner_dotfiles/.zpreztorc .zpreztorc
+    ln -s ~/clay_schubiner_dotfiles/.ideavimrc .ideavimrc
 
     cd ~
     ln -s ~/clay_schubiner_dotfiles/zsh_plugins  ~/zsh_plugins
