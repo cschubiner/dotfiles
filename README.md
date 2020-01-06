@@ -20,7 +20,7 @@ Run the following commands in your terminal. Your existing vimrc and zshrc files
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
     echo "Cloning Clay Schubiner dotfiles"
-    git clone https://github.com/cschubiner/dotfiles.git ~/clay_schubiner_dotfiles
+    git clone git@github.com:cschubiner/dotfiles.git ~/clay_schubiner_dotfiles
     mv -f ~/.zshrc BACKUP_ZSHRC
     mv -f ~/.vimrc BACKUP_VIMRC
     mv -f ~/.gitconfig BACKUP_GITCONFIG
