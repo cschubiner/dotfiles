@@ -1,8 +1,13 @@
 export TEST_INST=$(cat ~/zsh_plugins/test_instance.txt)
 
+export PATH="$HOME/.serverless/bin:$PATH"
+export PATH="$HOME/.serverless/bin:$PATH"
+
 # export PATH=$PATH:~/bin:~/Dropbox/googleSearchScraper/bin
 # export PATH=$PATH:/usr/local/Cellar/mysql/5.7.19/bin
 export PATH=$PATH:/opt/local/bin
+export PATH=$PATH:/usr/local/opt/python@3.8/bin
+export PATH=$PATH:/usr/local/opt/postgresql@12/bin
 # export JAVA_HOME=$(/usr/libexec/java_home)
 # export PATH=$JAVA_HOME/bin:$PATH
 
@@ -17,6 +22,9 @@ export GOOGLE_APPLICATION_CREDENTIALS="~/Dropbox/Other/stock-ml-99794e6060b6.jso
 export GIT_EDITOR=vim
 export EDITOR='subl'
 
+export WORKON_HOME=~/Envs
+source ~/.pyenv/versions/3.6.8/bin/virtualenvwrapper.sh
+
 # alias conda='~/anaconda3/bin/conda'
 # export PATH="~/anaconda3/bin:$PATH"
 
@@ -27,6 +35,9 @@ case $(hostname -s | cat) in
   clay-schubiners-MacBook-Pro)
     echo On Clay\'s usb-C laptop...
   ;;
+  Clays-MBP)
+    echo On Clay\'s usb-C laptop...
+  ;;
   Claytons-MacBook-Pro)
     echo On Clay\'s usb-C laptop...
   ;;
@@ -35,6 +46,8 @@ case $(hostname -s | cat) in
     hostname -s | cat
   ;;
 esac
+
+function killport() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
 
 # SCMPUFF STUFF
 # export SCMPUFF_GIT_CMD='/usr/local/bin/git'
@@ -151,6 +164,8 @@ glzy() {
 
 alias jf='cd ~/jumpstart-frontend'
 alias jb='cd ~/jumpstart-backend && source ./venv/bin/activate'
+
+alias cl='cd ~/canal && source ./canal-venv/bin/activate'
 alias f8='flake8'
 
 alias gd='git diff'
@@ -190,15 +205,17 @@ alias vh="air && vagrant halt"
 alias grv="~/git-reviewers/git-reviewers"
 
 alias grhom="git reset --hard origin/master"
+alias gamm="git add . && git commit -m \"more\""
 
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 
 eval "$(ssh-agent -s)";
-ssh-add -K ~/.ssh/backend-dev-server.pem
-ssh-add -K ~/.ssh/clay-webhooks-dev.pem
-ssh-add -K ~/.ssh/aws-chess.pem
-ssh-add -K ~/.ssh/id_rsa
+# ssh-add -K ~/.ssh/backend-dev-server.pem
+# ssh-add -K ~/.ssh/id_rsa
+
+# ssh-add -K ~/.ssh/clay-webhooks-dev.pem
+# ssh-add -K ~/.ssh/aws-chess.pem
 
 # https://github.com/nvbn/thefuck
 # eval $(thefuck --alias)

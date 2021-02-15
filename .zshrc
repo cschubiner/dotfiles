@@ -59,3 +59,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
