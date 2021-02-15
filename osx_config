@@ -16,11 +16,11 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 
 # [10.9] Misc `systemsetup` settings: see `man systemsetup`
 sudo systemsetup -settimezone America/Los_Angeles
-sudo systemsetup -setusingnetworktime on
+# sudo systemsetup -setusingnetworktime on
 sudo systemsetup -setcomputersleep 60
 sudo systemsetup -setdisplaysleep 15
-sudo systemsetup -setharddisksleep Never
-sudo systemsetup -setrestartfreeze on
+#sudo systemsetup -setharddisksleep Never
+#sudo systemsetup -setrestartfreeze on
 sudo systemsetup -setremoteappleevents off
 
 # [10.9] Disable local Time Machine snapshots
@@ -57,7 +57,7 @@ defaults write com.apple.finder QuitMenuItem -bool true
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
 
 # [10.9] Tweak subpixel font rendering (https://wincent.com/wiki/AppleFontSmoothing)
-defaults -currentHost write NSGlobalDomain AppleFontSmoothing -int 1
+# defaults -currentHost write NSGlobalDomain AppleFontSmoothing -int 1
 
 # [10.9] Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
@@ -95,7 +95,7 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
+# defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false

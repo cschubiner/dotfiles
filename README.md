@@ -45,7 +45,7 @@ Run the following commands in your terminal. Your existing vimrc and zshrc files
     chmod 777 ./osx_config
     ./osx_config
 
-    echo "Done!"
+    echo "Done"
 
 ### Installing in Windows
 If you're using Windows, change all occurrences of `~/.vim` to `~\vimfiles`.
