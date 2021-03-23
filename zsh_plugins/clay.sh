@@ -166,6 +166,8 @@ alias jf='cd ~/jumpstart-frontend'
 alias jb='cd ~/jumpstart-backend && source ./venv/bin/activate'
 
 alias cl='cd ~/canal && source ./canal-venv/bin/activate'
+alias cf='cd ~/frontend-canal'
+
 alias f8='flake8'
 
 alias gd='git diff'
