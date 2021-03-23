@@ -23,29 +23,29 @@ export GIT_EDITOR=vim
 export EDITOR='subl'
 
 export WORKON_HOME=~/Envs
-source ~/.pyenv/versions/3.6.8/bin/virtualenvwrapper.sh
+# source ~/.pyenv/versions/3.6.8/bin/virtualenvwrapper.sh
 
 # alias conda='~/anaconda3/bin/conda'
 # export PATH="~/anaconda3/bin:$PATH"
 
-case $(hostname -s | cat) in
-  clayschinersmbp)
-    echo On Clay\'s usb-C laptop...
-  ;;
-  clay-schubiners-MacBook-Pro)
-    echo On Clay\'s usb-C laptop...
-  ;;
-  Clays-MBP)
-    echo On Clay\'s usb-C laptop...
-  ;;
-  Claytons-MacBook-Pro)
-    echo On Clay\'s usb-C laptop...
-  ;;
-  *)
-    echo ERROR - Don\'t know which cons! You are on this cons:
-    hostname -s | cat
-  ;;
-esac
+# case $(hostname -s | cat) in
+#   clayschinersmbp)
+#     echo On Clay\'s usb-C laptop...
+#   ;;
+#   clay-schubiners-MacBook-Pro)
+#     echo On Clay\'s usb-C laptop...
+#   ;;
+#   Clays-MBP)
+#     echo On Clay\'s usb-C laptop...
+#   ;;
+#   Claytons-MacBook-Pro)
+#     echo On Clay\'s usb-C laptop...
+#   ;;
+#   *)
+#     echo ERROR - Don\'t know which cons! You are on this cons:
+#     hostname -s | cat
+#   ;;
+# esac
 
 function killport() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
 
