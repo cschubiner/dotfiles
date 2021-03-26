@@ -62,3 +62,5 @@ if [ -f '/Users/clayschubiner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; 
 
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"

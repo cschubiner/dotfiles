@@ -6,10 +6,13 @@ export PATH="$HOME/.serverless/bin:$PATH"
 # export PATH=$PATH:~/bin:~/Dropbox/googleSearchScraper/bin
 # export PATH=$PATH:/usr/local/Cellar/mysql/5.7.19/bin
 export PATH=$PATH:/opt/local/bin
+export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/usr/local/opt/python@3.8/bin
 export PATH=$PATH:/usr/local/opt/postgresql@12/bin
 # export JAVA_HOME=$(/usr/libexec/java_home)
 # export PATH=$JAVA_HOME/bin:$PATH
+
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 export GOPATH=$HOME/work
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
@@ -226,3 +229,6 @@ eval "$(ssh-agent -s)";
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey "^P" vi-up-line-or-history
 bindkey "^N" vi-down-line-or-history
+
+export CPPFLAGS=-I/usr/local/opt/openssl/include
+export LDFLAGS=-L/usr/local/opt/openssl/lib
