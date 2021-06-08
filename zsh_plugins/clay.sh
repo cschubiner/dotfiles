@@ -1,5 +1,7 @@
 export TEST_INST=$(cat ~/zsh_plugins/test_instance.txt)
 
+export KUBECONFIG=./kubeconfig
+
 export PATH="$HOME/.serverless/bin:$PATH"
 export PATH="$HOME/.serverless/bin:$PATH"
 

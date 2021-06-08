@@ -64,3 +64,5 @@ if [ -f '/Users/clayschubiner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; 
 export PATH="$HOME/.serverless/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
